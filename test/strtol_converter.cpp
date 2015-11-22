@@ -101,6 +101,7 @@ test_int_to_str()
     unsigned long int const       lmax = (std::numeric_limits<long int>::max)();
     unsigned long long int const llmin = (std::numeric_limits<long long int>::min)();
     unsigned long long int const llmax = (std::numeric_limits<long long int>::max)();
+
     std::string const   imin_str = boost::lexical_cast<std::string>(imin);
     std::string const   imax_str = boost::lexical_cast<std::string>(imax);
     std::string const   lmin_str = boost::lexical_cast<std::string>(lmin);
@@ -138,6 +139,7 @@ test_uint_to_str()
     unsigned int const            uimax = (std::numeric_limits<unsigned int>::max)();
     unsigned long int const       ulmax = (std::numeric_limits<unsigned long int>::max)();
     unsigned long long int const ullmax = (std::numeric_limits<unsigned long long int>::max)();
+
     std::string const   uimax_str = boost::lexical_cast<std::string>( uimax);
     std::string const   ulmax_str = boost::lexical_cast<std::string>( ulmax);
     std::string const  ullmax_str = boost::lexical_cast<std::string>(ullmax);
@@ -145,19 +147,6 @@ test_uint_to_str()
     BOOST_TEST( uimax_str == convert<std::string> ( uimax).value());
     BOOST_TEST( ulmax_str == convert<std::string> ( ulmax).value());
     BOOST_TEST(ullmax_str == convert<std::string> (ullmax).value());
-}
-
-static
-void
-test_empty_str()
-{
-    BOOST_TEST(-1 == convert<int>(std::string()).value_or(-1));
-    BOOST_TEST(-1 == convert<int>(std::string("")).value_or(-1));
-    BOOST_TEST(-1 == convert<int>("").value_or(-1));
-
-    BOOST_TEST(-1 == convert<int>(std::wstring()).value_or(-1));
-    BOOST_TEST(-1 == convert<int>(std::wstring(L"")).value_or(-1));
-    BOOST_TEST(-1 == convert<int>(L"").value_or(-1));
 }
 
 //[strtol_numeric_base_header
@@ -366,7 +355,6 @@ main(int, char const* [])
 {
     dbl_to_str_example();
 
-    test_empty_str();
     test_str_to_int();
     test_str_to_uint();
     test_int_to_str();

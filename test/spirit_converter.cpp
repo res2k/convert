@@ -26,16 +26,16 @@ struct boost::cnv::by_default : public boost::cnv::spirit {};
 int
 main(int, char const* [])
 {
-    char const* const   c_stri ("12345");
-    char const* const   c_strd ("123.45");
+    char const* const     c_stri ("12345");
+    char const* const     c_strd ("123.45");
     wchar_t const* const c_wstri (L"12345");
     wchar_t const* const c_wstrd (L"123.45");
-    std::string const std_stri (c_stri);
-    std::string const std_strd (c_strd);
+    std::string const   std_stri (c_stri);
+    std::string const   std_strd (c_strd);
     std::wstring const std_wstri (c_wstri);
     std::wstring const std_wstrd (c_wstrd);
-    my_string const    my_stri (c_stri, c_stri + strlen(c_stri));
-    my_string const    my_strd (c_strd, c_strd + strlen(c_strd));
+    my_string const      my_stri (c_stri, c_stri + strlen(c_stri));
+    my_string const      my_strd (c_strd, c_strd + strlen(c_strd));
 
     boost::cnv::spirit cnv;
 
